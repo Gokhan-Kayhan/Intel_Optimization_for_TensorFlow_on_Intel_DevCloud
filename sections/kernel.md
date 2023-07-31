@@ -1,11 +1,55 @@
-# Intel Developer Cloud
+# Setting up the Kernel
 
-Since I don't have suitable Intel Hardware, I have made all the test on Intel Developer Cloud. We can [sign up](https://devcloud.intel.com/oneapi/home/) and use the Intel oneAPI toolkits and Intel hardwares free for 120 days.
+First, we should open a new terminal, by following File-->New-->Terminal
+
+I suggest to start with `conda init bash` so that use the all conda commands without problems. _(For example, when this command wasn't used, "conda activate venv" does not work, we should use "source activate venv" and etc.)_
 
 
-After registration, we should connect to DevCloud. There are two ways :  
-1 - There is a part **"Connect with JupyterLab\*"** at the end of this [website](https://devcloud.intel.com/oneapi/get_started/). By simply clicking _"Launch JupyterLab"_, we can connect to Intel DevCloud.
+Intel DevCloud has already created virtual environment as shown in the below._(They can be seen with `conda env list` command)_ 
 
-2 - As seen in the below picture, we should choose our operating system and download private SSH key file. For the sake of simplicity, I suggest to follow instructions in _"Automated Configuration"_ section.
+<img src="figures/venv_list.png"  />
 
-<img src="figures/connect2devcloud.png"  />
+We can start by cloning one of them according to our use case. Since I will create models with Keras, I cloned _"tensorflow"_
+
+_(Note : When I worked on this project, at that times, pre-created "tensorflow-gpu" environment has conflict with some packages in the environment itself e.g. "jaxlib". Although they were fixed, later in the model training part, the error occurs about using the GPU. Therefore in the next parts, I continue with "tensorflow" environment)_  
+
+### 1 - Create virtual environment 
+This command clone the _tensorflow_ into new created virtual environment; _my\_tensorflow_ 
+``` 
+conda create --name my_tensorflow --clone tensorflow
+```
+
+  
+### 2 - Activate
+Now, we should install the necessary packages that we will use in our projects. So we can activate the virtual environment :
+``` 
+conda activate user_tensorflow
+```
+
+
+  if there is a problem with conda command, the following way can be also used to activate the environment :
+``` 
+source activate user_tensorflow
+```
+
+### 3 - Install packages
+According to the project, necassary packages should be installed. For example, intel optimized tensorflow is not preinstalled. So it can be installed with command: _(I don't suggest to use "pip" command, because later it might cause problems and conflicts with other virtual environments)_
+```
+conda install intel-extension-for-tensorflow[cpu]
+```
+
+Its installation can be checked with : 
+```
+python -c "import intel_extension_for_tensorflow as itex; print(itex.__version__)"
+```
+
+
+### 4 - Create new kernel
+Now we can create a new kernel for the Jupyter notebook based on the new conda environment. _(If we run our Python script in terminal via SSH, this part is not necessary)_
+```
+conda install ipykernel
+```
+
+```
+python -m ipykernel install --user --name my_tensorflow
+```
