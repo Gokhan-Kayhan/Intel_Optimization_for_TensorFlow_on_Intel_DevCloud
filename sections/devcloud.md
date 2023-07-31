@@ -1,6 +1,6 @@
 # Intel Developer Cloud
 
-Since I don't have suitable Intel Hardware, I have made all the test on Intel Developer Cloud. We can [sign up](https://devcloud.intel.com/oneapi/home/) and use the Intel oneAPI toolkits and Intel hardwares free for 120 days.
+We can [sign up](https://devcloud.intel.com/oneapi/home/) and use the Intel oneAPI toolkits and Intel hardwares free for 120 days.
 
 
 After registration, we should connect to DevCloud. There are two ways :  
