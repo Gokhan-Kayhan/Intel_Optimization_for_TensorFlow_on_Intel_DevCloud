@@ -50,6 +50,8 @@ Its installation can be checked with :
 python -c "import intel_extension_for_tensorflow as itex; print(itex.__version__)"
 ```
 
+All other packages should be installed in this way. For example in my case, _"tqdm"_ package was missing too. Therefore, it was installed with `pip install --upgrade tqdm` command.
+
 
 ### 4 - Create new kernel
 Now we can create a new kernel for the Jupyter notebook based on the new conda environment. _(If we run our Python script in terminal via SSH, this part is not necessary)_
