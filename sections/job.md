@@ -8,6 +8,8 @@ Then we can run the codes cell by cell. But there is a better way to run our cod
 
 ---
 
+</br>
+
 # Job queue
 
 ## 1 - Convert Jupyter Notebook
@@ -35,6 +37,7 @@ _(Note : It is not necessary to install packages in virtual environment. We can 
 </p>
   
 </br>
+</br>
 
 ## 2 - Creating a Job Script
 
@@ -48,6 +51,7 @@ lscpu | grep "Model name"
 source activate my_tensorflow  #We should activate the kernel which has all necassary packages
 python untitled.py  #This Python scripts contains our codes and it will be run
 ```
+</br>
 </br>
 
 ## 3 - Submit Job to queue
@@ -86,7 +90,8 @@ Submitting can be done in two ways:
 <img src="figures/submit_ssh.png"  width="80%" height="80%">
 </p>
 
-
+</br>
+</br>
 
 ## 4 - Output
 
