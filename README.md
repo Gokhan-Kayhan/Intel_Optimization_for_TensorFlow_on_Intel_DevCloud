@@ -18,6 +18,7 @@ To run our codes, we should set up a kernel. Details can be found [in this secti
 
 [This section](sections/job.md) explains ; running the codes and using the all capacity of the available computing resources on the DevCloud.
 
+</br>
 
 ## Comparison of results
 
